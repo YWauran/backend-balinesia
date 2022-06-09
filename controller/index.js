@@ -24,4 +24,15 @@ module.exports = {
             res.status(200).json({ success: true, data: rows });
         });
     },
+    getDestinationsByLocation : (req, res) => {
+        const data = { ...req.body };
+        const querySql = 'SELECT * FROM destinasi_wisata WHERE lokasi = ?';
+
+        db.query(querySql, req.params.lokasi, (err, rows, field) => {
+            if (err) {
+                return res.status(500).json({ message: 'Ada kesalahan', error: err });
+            }  
+            res.status(200).json({ success: true, data: rows });
+        });
+    }
 }
