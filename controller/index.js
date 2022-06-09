@@ -34,5 +34,19 @@ module.exports = {
             }  
             res.status(200).json({ success: true, data: rows });
         });
-    }
+    },
+    getDestinationsByRating: (req, res) => {
+        const querySql = 'SELECT * FROM destinasi_wisata WHERE rating >= 4.5 ORDER BY rating DESC ';
+    
+        // jalankan query
+        db.query(querySql, (err, rows, field) => {
+            // error handling
+            if (err) {
+                return res.status(500).json({ message: 'Ada kesalahan', error: err });
+            }
+    
+            // jika request berhasil
+            res.status(200).json({ success: true, data: rows });
+        });
+    },
 }
