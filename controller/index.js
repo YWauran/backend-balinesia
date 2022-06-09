@@ -24,6 +24,20 @@ module.exports = {
             res.status(200).json({ success: true, data: rows });
         });
     },
+    getDestinationById : (req, res) => {
+        // buat variabel penampung data dan query sql
+        const data = { ...req.body };
+        const querySql = 'SELECT * FROM destinasi_wisata WHERE id = ?';
+        // jalankan query
+        db.query(querySql, req.params.id, (err, rows, field) => {
+            // error handling
+            if (err) {
+                return res.status(500).json({ message: 'Ada kesalahan', error: err });
+            }
+            // jika request berhasil
+            res.status(200).json({ success: true, data: rows });
+        });
+    },
     getDestinationsByLocation : (req, res) => {
         const data = { ...req.body };
         const querySql = 'SELECT * FROM destinasi_wisata WHERE lokasi = ?';
