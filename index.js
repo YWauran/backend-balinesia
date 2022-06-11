@@ -13,8 +13,7 @@ app.use(cors());
 
 app.use('/api', Router);
 
-app.get('/', (req, res) => {
-    res.send('<h1>Hello World</h1>');
-})
+app.get('/', (req, res) => res.send('<h1>Hello World</h1>'));
+
 // buat server nya
 app.listen(PORT, () => console.log(`Server running at port: ${PORT}`));
