@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(cors());
 
-// app.use('/api', Router);
+app.use('/api', Router);
 
 app.get('/', (req, res) => res.send('<h1>Hello World</h1>'));
 
