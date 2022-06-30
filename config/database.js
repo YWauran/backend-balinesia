@@ -1,10 +1,10 @@
 const mysql = require('mysql');
 // buat konfigurasi koneksi
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'db_balinesia',
+    host: 'sql6.freesqldatabase.com',
+    user: 'sql6503128',
+    password: 'tPtKJrl5aX',
+    database: 'sql6503128',
     multipleStatements: true
 });
 // koneksi database
